@@ -31,7 +31,6 @@ app.get('/', (req, res) => {
 })
 
 //database connect
-mongoose.set("strictQuery", false);
 // const connect = async() => {
 //     try {
 //         await mongoose.connect(process.env.MONGO_URI)
@@ -63,8 +62,7 @@ app.use((req, res, next) => {
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
-
+mongoose.set("strictQuery", false);
 app.listen(port, () => {
-    connect();
     console.log(`Server is running on ${port}`)
 });
