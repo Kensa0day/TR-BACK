@@ -8,6 +8,10 @@ import userRoute from './routes/users.js';
 import authRoute from './routes/auth.js';
 import reviewRoute from './routes/reviews.js';
 import bookingRoute from './routes/booking.js';
+const connectDB = require('./connectMongo');
+
+
+connectDB();
 
 
 
@@ -28,17 +32,17 @@ app.get('/', (req, res) => {
 
 //database connect
 mongoose.set("strictQuery", false);
-const connect = async() => {
-    try {
-        await mongoose.connect(process.env.MONGO_URI)
+// const connect = async() => {
+//     try {
+//         await mongoose.connect(process.env.MONGO_URI)
 
-        console.log('Mongo Connect')
+//         console.log('Mongo Connect')
 
-    } catch (err) {
-        console.log('Connect Failed')
+//     } catch (err) {
+//         console.log('Connect Failed')
 
-    }
-}
+//     }
+// }
 
 //middleware
 
