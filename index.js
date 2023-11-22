@@ -8,7 +8,7 @@ import userRoute from './routes/users.js';
 import authRoute from './routes/auth.js';
 import reviewRoute from './routes/reviews.js';
 import bookingRoute from './routes/booking.js';
-const connectDB = require('./connectMongo');
+import connectDB from './connectMongo';
 
 
 connectDB();
@@ -18,7 +18,7 @@ connectDB();
 
 dotenv.config()
 const app = express();
-const port = process.env.PORT
+const PORT = process.env.PORT
 const corsOptions = {
     origin: true,
     credentials: true
@@ -63,6 +63,6 @@ app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
 mongoose.set("strictQuery", false);
-app.listen(port, () => {
-    console.log(`Server is running on ${port}`)
+app.listen(PORT, () => {
+    console.log(`Server is running on ${PORT}`)
 });
