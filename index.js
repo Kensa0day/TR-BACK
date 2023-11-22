@@ -22,7 +22,7 @@ const corsOptions = {
 // test
 
 app.get('/', (req, res) => {
-    res.send('API RUNNING');
+    res.send('API RUNNING ONLINE');
 })
 
 //database connect
