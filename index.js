@@ -8,7 +8,7 @@ import userRoute from './routes/users.js';
 import authRoute from './routes/auth.js';
 import reviewRoute from './routes/reviews.js';
 import bookingRoute from './routes/booking.js';
-import connectDB from './connectMongo';
+import connectDB from 'connectMongo.js';
 
 
 connectDB();
