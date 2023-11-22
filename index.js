@@ -14,7 +14,6 @@ import bookingRoute from './routes/booking.js';
 
 dotenv.config()
 const app = express();
-const bodyParser = require('body-parser');
 const port = process.env.PORT
 const corsOptions = {
     origin: true,
@@ -61,7 +60,6 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     next();
 })
-app.use(bodyParser.json());
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
