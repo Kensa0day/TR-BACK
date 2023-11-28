@@ -16,6 +16,7 @@ connectDB();
 
 
 
+
 dotenv.config()
 const app = express();
 const PORT = process.env.PORT
@@ -23,6 +24,13 @@ const corsOptions = {
     origin: true,
     credentials: true
 }
+
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next();
+})
 
 // test
 
@@ -53,12 +61,7 @@ app.use('/api/v1/tours', tourRoute);
 app.use('/api/v1/users', userRoute);
 app.use('/api/v1/review', reviewRoute);
 app.use('/api/v1/booking', bookingRoute);
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    next();
-})
+
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
